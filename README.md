@@ -74,7 +74,10 @@ This Google Apps Script creates a lightweight API for interacting with a Google 
    ```
 
 4. **Deploy the Script**:
-   - Click on `Deploy` > `Test deployments`.
+   - Click on `Deploy` > `New deployment`.
+   - You may need to approve this Google App on your Google Account.
+   - Execute as me (your emaiL)
+   - Who has access (anyone)
    - Follow the prompts to deploy the app and copy the Web App URL.
 
 ## API Usage
