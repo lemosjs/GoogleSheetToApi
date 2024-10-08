@@ -147,3 +147,9 @@ curl -X POST "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec?path=Sheet1
 - Ensure the sheet name passed in the `path` parameter is spelled exactly as it appears in your Google Sheet.
 - If you encounter any issues with permissions, ensure the app is deployed with the appropriate permissions (`Anyone` or `Anyone, even anonymous`).
 
+## Support
+
+If you you found this useful you can buy me a coffee!
+
+[![Buy Me a Coffee](https://img.shields.io/badge/-Buy%20Me%20a%20Coffee-orange?style=flat-square&logo=buy-me-a-coffee&logoColor=white)](https://buymeacoffee.com/mrlemos)
+
