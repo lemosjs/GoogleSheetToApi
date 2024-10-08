@@ -8,4 +8,5 @@ This Google Apps Script creates a lightweight API for interacting with a Google 
 - **GET request** to retrieve sheet data as JSON.
 - **POST request** to append a new row using JSON data.
 
-[Tutorial](https://www.youtube.com/watch?v=BjnEmencMf0)
+[![Watch the video](https://img.youtube.com/vi/BjnEmencMf0/0.jpg)](https://www.youtube.com/watch?v=BjnEmencMf0)
+
