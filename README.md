@@ -6,7 +6,6 @@ This Google Apps Script creates a lightweight API for interacting with a Google 
 
 ## Features
 - **GET request** to retrieve sheet data as JSON.
-- **GET request** to append a new row with query parameters.
 - **POST request** to append a new row using JSON data.
 
 ## Setup Instructions
@@ -46,12 +45,8 @@ This Google Apps Script creates a lightweight API for interacting with a Google 
    }
 
    function doGet(e) {
-     const path = e.parameter.path;
-     if (e.parameter.addRow) {
-       return appendRowQuery(e);
-     } else {
-       return json(path);
-     }
+      const path = e.parameter.path;
+      return json(path);
    }
 
    function doPost(e) {
@@ -60,21 +55,7 @@ This Google Apps Script creates a lightweight API for interacting with a Google 
      return appendRowJSON(sheetName, data);
    }
 
-   function appendRowQuery(e) {
-     const sheetName = e.parameter.path;
-     const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(sheetName);
 
-     const headers = sheet.getDataRange().getValues()[0]; // Get headers
-     let newRow = [];
-
-     headers.forEach(header => {
-       newRow.push(e.parameter[header] || ''); // Use empty string if parameter is missing
-     });
-
-     sheet.appendRow(newRow);
-
-     return ContentService.createTextOutput("Row added successfully via GET request");
-   }
 
    function appendRowJSON(sheetName, data) {
      const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(sheetName);
@@ -140,7 +121,7 @@ https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec?path=Sheet1
 - Ensure that the keys in the JSON payload match the column headers in your sheet.
 
 ### 4. **Response**
-Both the GET and POST requests for appending rows will return the following message upon success:
+POST requests for appending rows will return the following message upon success:
 ```
 Row added successfully via GET request (or POST request)
 ```
@@ -152,10 +133,6 @@ Row added successfully via GET request (or POST request)
 curl "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec?path=Sheet1"
 ```
 
-### GET Request (Append Row)
-```bash
-curl "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec?path=Sheet1&Name=John&Age=30&addRow=true"
-```
 
 ### POST Request (Append Row)
 ```bash
